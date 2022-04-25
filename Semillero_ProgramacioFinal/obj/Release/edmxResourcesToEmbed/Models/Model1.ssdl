@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="plataformaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="academia">
+    <Key>
+      <PropertyRef Name="idacademia" />
+    </Key>
+    <Property Name="idacademia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="asignacionsalas">
+    <Key>
+      <PropertyRef Name="idasignacionsalas" />
+    </Key>
+    <Property Name="idasignacionsalas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkidparticipacion" Type="int" />
+    <Property Name="fkidsalacompetencia" Type="int" />
+  </EntityType>
+  <EntityType Name="competencia">
+    <Key>
+      <PropertyRef Name="idcompetencia" />
+    </Key>
+    <Property Name="idcompetencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="cupos" Type="int" />
+    <Property Name="fechacompetencia" Type="date" />
+    <Property Name="hotainicio" Type="time" Precision="7" />
+    <Property Name="horafin" Type="time" Precision="7" />
+    <Property Name="cantidadejercicios" Type="int" />
+    <Property Name="numeroparticipantes" Type="int" />
+    <Property Name="limiteinscripcion" Type="date" />
+    <Property Name="fkestado" Type="int" />
+  </EntityType>
+  <EntityType Name="correoCompetencia">
+    <Key>
+      <PropertyRef Name="idcorreoCompetencia" />
+    </Key>
+    <Property Name="idcorreoCompetencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="asunto" Type="varchar" MaxLength="100" />
+    <Property Name="mensaje" Type="varchar" MaxLength="1000" />
+    <Property Name="fkidcompetencia" Type="int" />
+  </EntityType>
+  <EntityType Name="correomasivo">
+    <Key>
+      <PropertyRef Name="correomasivo" />
+    </Key>
+    <Property Name="correomasivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="asunto" Type="varchar" MaxLength="100" />
+    <Property Name="mensaje" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="estadocompetencia">
+    <Key>
+      <PropertyRef Name="idestadocompetencia" />
+    </Key>
+    <Property Name="idestadocompetencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadogrupo">
+    <Key>
+      <PropertyRef Name="idestadogrupo" />
+    </Key>
+    <Property Name="idestadogrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadoprivilegio">
+    <Key>
+      <PropertyRef Name="idestadoprivilegio" />
+    </Key>
+    <Property Name="idestadoprivilegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadorol">
+    <Key>
+      <PropertyRef Name="idestadorol" />
+    </Key>
+    <Property Name="idestadorol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadosala">
+    <Key>
+      <PropertyRef Name="idestadosala" />
+    </Key>
+    <Property Name="idestadosala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadosalacompetencia">
+    <Key>
+      <PropertyRef Name="idestadosalacompetencia" />
+    </Key>
+    <Property Name="idestadosalacompetencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estadousuario">
+    <Key>
+      <PropertyRef Name="idestadousuario" />
+    </Key>
+    <Property Name="idestadousuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="idgrupo" />
+    </Key>
+    <Property Name="idgrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" />
+    <Property Name="contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="fkidcompetencia" Type="int" />
+    <Property Name="fkidnivel" Type="int" />
+    <Property Name="fkidestado" Type="int" />
+  </EntityType>
+  <EntityType Name="grupopersona">
+    <Key>
+      <PropertyRef Name="idgrupopersona" />
+    </Key>
+    <Property Name="idgrupopersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="puesto" Type="int" />
+    <Property Name="fkidpersona" Type="int" />
+    <Property Name="fkidgrupo" Type="int" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="idmenu" />
+    </Key>
+    <Property Name="idmenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ruta" Type="varchar" MaxLength="50" />
+    <Property Name="fkmenu" Type="int" />
+  </EntityType>
+  <EntityType Name="nivel">
+    <Key>
+      <PropertyRef Name="idnivel" />
+    </Key>
+    <Property Name="idnivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="participacion">
+    <Key>
+      <PropertyRef Name="idparticipacion" />
+    </Key>
+    <Property Name="idparticipacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkidgrupo" Type="int" />
+    <Property Name="fkidnivel" Type="int" />
+    <Property Name="fkidcompetencia" Type="int" />
+  </EntityType>
+  <EntityType Name="persona">
+    <Key>
+      <PropertyRef Name="idpersona" />
+    </Key>
+    <Property Name="idpersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="identificacion" Type="int" />
+    <Property Name="primernombre" Type="varchar" MaxLength="50" />
+    <Property Name="segundonombre" Type="varchar" MaxLength="50" />
+    <Property Name="primerapellido" Type="varchar" MaxLength="50" />
+    <Property Name="segundoapellido" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="fktipodocumento" Type="int" />
+    <Property Name="fkacademia" Type="int" />
+  </EntityType>
+  <EntityType Name="plataforma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="100" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="privilegio">
+    <Key>
+      <PropertyRef Name="idprivilegio" />
+    </Key>
+    <Property Name="idprivilegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkestadoprivilegio" Type="int" />
+    <Property Name="fkrol" Type="int" />
+    <Property Name="fkmenu" Type="int" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="fkestadorol" Type="int" />
+  </EntityType>
+  <EntityType Name="sala">
+    <Key>
+      <PropertyRef Name="idsala" />
+    </Key>
+    <Property Name="idsala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="cupos" Type="int" />
+    <Property Name="fkestado" Type="int" />
+  </EntityType>
+  <EntityType Name="salacompetencia">
+    <Key>
+      <PropertyRef Name="idsalacompetencia" />
+    </Key>
+    <Property Name="idsalacompetencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="cupos" Type="int" />
+    <Property Name="fkidcompetencia" Type="int" />
+    <Property Name="fkidsala" Type="int" />
+    <Property Name="fkestado" Type="int" />
+  </EntityType>
+  <EntityType Name="tipodocumento">
+    <Key>
+      <PropertyRef Name="idtipodocumento" />
+    </Key>
+    <Property Name="idtipodocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="correoelectronico" Type="varchar" MaxLength="50" />
+    <Property Name="contrasena" Type="varchar" MaxLength="500" />
+    <Property Name="fkidepersona" Type="int" />
+    <Property Name="fkrol" Type="int" />
+    <Property Name="fkestado" Type="int" />
+  </EntityType>
+  <Association Name="fkacade">
+    <End Role="academia" Type="Self.academia" Multiplicity="0..1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="academia">
+        <PropertyRef Name="idacademia" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="fkacademia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkcomp">
+    <End Role="competencia" Type="Self.competencia" Multiplicity="0..1" />
+    <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="competencia">
+        <PropertyRef Name="idcompetencia" />
+      </Principal>
+      <Dependent Role="grupo">
+        <PropertyRef Name="fkidcompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkcompsala">
+    <End Role="competencia" Type="Self.competencia" Multiplicity="0..1" />
+    <End Role="salacompetencia" Type="Self.salacompetencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="competencia">
+        <PropertyRef Name="idcompetencia" />
+      </Principal>
+      <Dependent Role="salacompetencia">
+        <PropertyRef Name="fkidcompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkecompete">
+    <End Role="competencia" Type="Self.competencia" Multiplicity="0..1" />
+    <End Role="correoCompetencia" Type="Self.correoCompetencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="competencia">
+        <PropertyRef Name="idcompetencia" />
+      </Principal>
+      <Dependent Role="correoCompetencia">
+        <PropertyRef Name="fkidcompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkesta">
+    <End Role="estadocompetencia" Type="Self.estadocompetencia" Multiplicity="0..1" />
+    <End Role="competencia" Type="Self.competencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadocompetencia">
+        <PropertyRef Name="idestadocompetencia" />
+      </Principal>
+      <Dependent Role="competencia">
+        <PropertyRef Name="fkestado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkestadop">
+    <End Role="estadoprivilegio" Type="Self.estadoprivilegio" Multiplicity="0..1" />
+    <End Role="privilegio" Type="Self.privilegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadoprivilegio">
+        <PropertyRef Name="idestadoprivilegio" />
+      </Principal>
+      <Dependent Role="privilegio">
+        <PropertyRef Name="fkestadoprivilegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkestadosala">
+    <End Role="estadosala" Type="Self.estadosala" Multiplicity="0..1" />
+    <End Role="sala" Type="Self.sala" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadosala">
+        <PropertyRef Name="idestadosala" />
+      </Principal>
+      <Dependent Role="sala">
+        <PropertyRef Name="fkestado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkestadosalacompetencia">
+    <End Role="estadosalacompetencia" Type="Self.estadosalacompetencia" Multiplicity="0..1" />
+    <End Role="salacompetencia" Type="Self.salacompetencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadosalacompetencia">
+        <PropertyRef Name="idestadosalacompetencia" />
+      </Principal>
+      <Dependent Role="salacompetencia">
+        <PropertyRef Name="fkestado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkestau">
+    <End Role="estadousuario" Type="Self.estadousuario" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadousuario">
+        <PropertyRef Name="idestadousuario" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="fkestado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidcomp">
+    <End Role="competencia" Type="Self.competencia" Multiplicity="0..1" />
+    <End Role="participacion" Type="Self.participacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="competencia">
+        <PropertyRef Name="idcompetencia" />
+      </Principal>
+      <Dependent Role="participacion">
+        <PropertyRef Name="fkidcompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkiden">
+    <End Role="tipodocumento" Type="Self.tipodocumento" Multiplicity="0..1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipodocumento">
+        <PropertyRef Name="idtipodocumento" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="fktipodocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidesta">
+    <End Role="estadogrupo" Type="Self.estadogrupo" Multiplicity="0..1" />
+    <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadogrupo">
+        <PropertyRef Name="idestadogrupo" />
+      </Principal>
+      <Dependent Role="grupo">
+        <PropertyRef Name="fkidestado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidg">
+    <End Role="grupo" Type="Self.grupo" Multiplicity="0..1" />
+    <End Role="grupopersona" Type="Self.grupopersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo">
+        <PropertyRef Name="idgrupo" />
+      </Principal>
+      <Dependent Role="grupopersona">
+        <PropertyRef Name="fkidgrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidgg">
+    <End Role="grupo" Type="Self.grupo" Multiplicity="0..1" />
+    <End Role="participacion" Type="Self.participacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo">
+        <PropertyRef Name="idgrupo" />
+      </Principal>
+      <Dependent Role="participacion">
+        <PropertyRef Name="fkidgrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidnivev">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="participacion" Type="Self.participacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="idnivel" />
+      </Principal>
+      <Dependent Role="participacion">
+        <PropertyRef Name="fkidnivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidnivv">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="idnivel" />
+      </Principal>
+      <Dependent Role="grupo">
+        <PropertyRef Name="fkidnivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidp">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+    <End Role="grupopersona" Type="Self.grupopersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="idpersona" />
+      </Principal>
+      <Dependent Role="grupopersona">
+        <PropertyRef Name="fkidpersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidpar">
+    <End Role="participacion" Type="Self.participacion" Multiplicity="0..1" />
+    <End Role="asignacionsalas" Type="Self.asignacionsalas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="participacion">
+        <PropertyRef Name="idparticipacion" />
+      </Principal>
+      <Dependent Role="asignacionsalas">
+        <PropertyRef Name="fkidparticipacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidsalas">
+    <End Role="salacompetencia" Type="Self.salacompetencia" Multiplicity="0..1" />
+    <End Role="asignacionsalas" Type="Self.asignacionsalas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salacompetencia">
+        <PropertyRef Name="idsalacompetencia" />
+      </Principal>
+      <Dependent Role="asignacionsalas">
+        <PropertyRef Name="fkidsalacompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkmenu">
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+    <End Role="privilegio" Type="Self.privilegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="idmenu" />
+      </Principal>
+      <Dependent Role="privilegio">
+        <PropertyRef Name="fkmenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkper">
+    <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="idpersona" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="fkidepersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkrolesta">
+    <End Role="estadorol" Type="Self.estadorol" Multiplicity="0..1" />
+    <End Role="rol" Type="Self.rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadorol">
+        <PropertyRef Name="idestadorol" />
+      </Principal>
+      <Dependent Role="rol">
+        <PropertyRef Name="fkestadorol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkroll">
+    <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+    <End Role="privilegio" Type="Self.privilegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="privilegio">
+        <PropertyRef Name="fkrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkrolle">
+    <End Role="rol" Type="Self.rol" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="fkrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fksalasala">
+    <End Role="sala" Type="Self.sala" Multiplicity="0..1" />
+    <End Role="salacompetencia" Type="Self.salacompetencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sala">
+        <PropertyRef Name="idsala" />
+      </Principal>
+      <Dependent Role="salacompetencia">
+        <PropertyRef Name="fkidsala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fksm">
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+    <End Role="menu1" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="idmenu" />
+      </Principal>
+      <Dependent Role="menu1">
+        <PropertyRef Name="fkmenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_activarPrivilegio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_agregar_grupo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="documento1" Type="int" Mode="In" />
+    <Parameter Name="documento2" Type="int" Mode="In" />
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+    <Parameter Name="idnivel" Type="int" Mode="In" />
+    <Parameter Name="usuario" Type="varchar" Mode="In" />
+    <Parameter Name="constrasena" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_AsentarCompetencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_cambiarDeSala" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idgrupo" Type="int" Mode="In" />
+    <Parameter Name="idsala" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_cambiarRolUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="identificacion" Type="int" Mode="In" />
+    <Parameter Name="idrol" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_competenciasA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_competenciasU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="identificacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_desactivarPrivilegio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_editarUsuariosA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_eliminarEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idequipo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_historialCompetenciaA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_historialCompetenciaU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarCompetenciasActivasCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listarGruposEnSala" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarGruposSubirResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarParaEditar_equipoPropio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+    <Parameter Name="identificacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarPrivilegios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idrol" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcompetencia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_negarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ide" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_responderSolicitudCompetencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idgrupo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_subirResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idgrupo" Type="int" Mode="In" />
+    <Parameter Name="puesto" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="plataformaModelStoreContainer">
+    <EntitySet Name="academia" EntityType="Self.academia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asignacionsalas" EntityType="Self.asignacionsalas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="competencia" EntityType="Self.competencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correoCompetencia" EntityType="Self.correoCompetencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correomasivo" EntityType="Self.correomasivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadocompetencia" EntityType="Self.estadocompetencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadogrupo" EntityType="Self.estadogrupo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadoprivilegio" EntityType="Self.estadoprivilegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadorol" EntityType="Self.estadorol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadosala" EntityType="Self.estadosala" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadosalacompetencia" EntityType="Self.estadosalacompetencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadousuario" EntityType="Self.estadousuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupopersona" EntityType="Self.grupopersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nivel" EntityType="Self.nivel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="participacion" EntityType="Self.participacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="plataforma" EntityType="Self.plataforma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="privilegio" EntityType="Self.privilegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sala" EntityType="Self.sala" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salacompetencia" EntityType="Self.salacompetencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipodocumento" EntityType="Self.tipodocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fkacade" Association="Self.fkacade">
+      <End Role="academia" EntitySet="academia" />
+      <End Role="persona" EntitySet="persona" />
+    </AssociationSet>
+    <AssociationSet Name="fkcomp" Association="Self.fkcomp">
+      <End Role="competencia" EntitySet="competencia" />
+      <End Role="grupo" EntitySet="grupo" />
+    </AssociationSet>
+    <AssociationSet Name="fkcompsala" Association="Self.fkcompsala">
+      <End Role="competencia" EntitySet="competencia" />
+      <End Role="salacompetencia" EntitySet="salacompetencia" />
+    </AssociationSet>
+    <AssociationSet Name="fkecompete" Association="Self.fkecompete">
+      <End Role="competencia" EntitySet="competencia" />
+      <End Role="correoCompetencia" EntitySet="correoCompetencia" />
+    </AssociationSet>
+    <AssociationSet Name="fkesta" Association="Self.fkesta">
+      <End Role="estadocompetencia" EntitySet="estadocompetencia" />
+      <End Role="competencia" EntitySet="competencia" />
+    </AssociationSet>
+    <AssociationSet Name="fkestadop" Association="Self.fkestadop">
+      <End Role="estadoprivilegio" EntitySet="estadoprivilegio" />
+      <End Role="privilegio" EntitySet="privilegio" />
+    </AssociationSet>
+    <AssociationSet Name="fkestadosala" Association="Self.fkestadosala">
+      <End Role="estadosala" EntitySet="estadosala" />
+      <End Role="sala" EntitySet="sala" />
+    </AssociationSet>
+    <AssociationSet Name="fkestadosalacompetencia" Association="Self.fkestadosalacompetencia">
+      <End Role="estadosalacompetencia" EntitySet="estadosalacompetencia" />
+      <End Role="salacompetencia" EntitySet="salacompetencia" />
+    </AssociationSet>
+    <AssociationSet Name="fkestau" Association="Self.fkestau">
+      <End Role="estadousuario" EntitySet="estadousuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fkidcomp" Association="Self.fkidcomp">
+      <End Role="competencia" EntitySet="competencia" />
+      <End Role="participacion" EntitySet="participacion" />
+    </AssociationSet>
+    <AssociationSet Name="fkiden" Association="Self.fkiden">
+      <End Role="tipodocumento" EntitySet="tipodocumento" />
+      <End Role="persona" EntitySet="persona" />
+    </AssociationSet>
+    <AssociationSet Name="fkidesta" Association="Self.fkidesta">
+      <End Role="estadogrupo" EntitySet="estadogrupo" />
+      <End Role="grupo" EntitySet="grupo" />
+    </AssociationSet>
+    <AssociationSet Name="fkidg" Association="Self.fkidg">
+      <End Role="grupo" EntitySet="grupo" />
+      <End Role="grupopersona" EntitySet="grupopersona" />
+    </AssociationSet>
+    <AssociationSet Name="fkidgg" Association="Self.fkidgg">
+      <End Role="grupo" EntitySet="grupo" />
+      <End Role="participacion" EntitySet="participacion" />
+    </AssociationSet>
+    <AssociationSet Name="fkidnivev" Association="Self.fkidnivev">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="participacion" EntitySet="participacion" />
+    </AssociationSet>
+    <AssociationSet Name="fkidnivv" Association="Self.fkidnivv">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="grupo" EntitySet="grupo" />
+    </AssociationSet>
+    <AssociationSet Name="fkidp" Association="Self.fkidp">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="grupopersona" EntitySet="grupopersona" />
+    </AssociationSet>
+    <AssociationSet Name="fkidpar" Association="Self.fkidpar">
+      <End Role="participacion" EntitySet="participacion" />
+      <End Role="asignacionsalas" EntitySet="asignacionsalas" />
+    </AssociationSet>
+    <AssociationSet Name="fkidsalas" Association="Self.fkidsalas">
+      <End Role="salacompetencia" EntitySet="salacompetencia" />
+      <End Role="asignacionsalas" EntitySet="asignacionsalas" />
+    </AssociationSet>
+    <AssociationSet Name="fkmenu" Association="Self.fkmenu">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="privilegio" EntitySet="privilegio" />
+    </AssociationSet>
+    <AssociationSet Name="fkper" Association="Self.fkper">
+      <End Role="persona" EntitySet="persona" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fkrolesta" Association="Self.fkrolesta">
+      <End Role="estadorol" EntitySet="estadorol" />
+      <End Role="rol" EntitySet="rol" />
+    </AssociationSet>
+    <AssociationSet Name="fkroll" Association="Self.fkroll">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="privilegio" EntitySet="privilegio" />
+    </AssociationSet>
+    <AssociationSet Name="fkrolle" Association="Self.fkrolle">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fksalasala" Association="Self.fksalasala">
+      <End Role="sala" EntitySet="sala" />
+      <End Role="salacompetencia" EntitySet="salacompetencia" />
+    </AssociationSet>
+    <AssociationSet Name="fksm" Association="Self.fksm">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="menu1" EntitySet="menu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

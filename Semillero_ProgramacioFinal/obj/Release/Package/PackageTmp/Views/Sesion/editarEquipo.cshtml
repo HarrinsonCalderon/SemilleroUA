@@ -1,0 +1,116 @@
+﻿@model Semillero_ProgramacioFinal.Models.sp_listarParaEditar_equipoPropio_Result
+
+@{
+    ViewBag.Title = "editarEquipo";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+ 
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Equipo</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class="">
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombreParticipante1)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NombreParticipante1)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApellidoParticipante1)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApellidoParticipante1)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.identificacion1)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.identificacion1)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombreParticipante2)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NombreParticipante2)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApellidoParticipante2)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApellidoParticipante2)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.identificacion2)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.identificacion2)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.idGrupo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.idGrupo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombreEquipo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NombreEquipo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombreCompetencia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NombreCompetencia)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombre)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nivel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nivel)
+                </dd>
+
+            </dl>
+        </div>
+        <a class="btn btn-primary" href="~/Sesion/editarEquipoA/@Model.idGrupo">Editar</a>
+        <a class="btn btn-danger" href="~/Sesion/eliminarEquipoA/@Model.idGrupo">Eliminar</a>
+    </div>
+
+</div>

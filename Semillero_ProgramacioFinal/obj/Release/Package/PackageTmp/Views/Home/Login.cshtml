@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@Styles.Render("~/Content/Formularios");-+
+@Styles.Render("~/Content/Home/formulario");
+<section id="contact-page">
+
+    @{
+        if (ViewBag.Error != null)
+        {
+
+            <script>
+                 alert("@ViewBag.Error");
+            </script>
+
+        }
+    }
+
+    <!--formulario login -->
+    <form action="/Home/Login" class="formulario" method="post">
+        <img class="avatar" src="~/img/Fondo/usuario.png" alt="">
+        <h1 class="text-uppercase">Inicio de sesion</h1>
+        <div class="contenedor">
+
+
+
+            <div class="input-contenedor">
+                <i class="fa fa-envelope icon"></i>
+                <input type="text" name="email" placeholder="Correo Electronico">
+
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fa fa-key icon"></i>
+                <input type="password" name="password" placeholder="Contraseña">
+
+            </div>
+            <input type="submit" value="Acceder" class="button2">
+            <p class="parrafo">Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p class="parrafo">¿No tienes una cuenta? <a class="link" href="Add">Registrate </a></p>
+        </div>
+    </form>
+ 
+
+
+</section>
+

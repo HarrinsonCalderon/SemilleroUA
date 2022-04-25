@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_listarGruposEnSala_Result>
+
+@{
+    ViewBag.Title = "asentarCompetencia";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    var id = 1; var it = 1;
+}
+
+
+
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Asentar competencia</h3>
+    </div>
+    <!--<a class="btn btn-primary" href="~/Sesion/reporteAsentarCompetencia/@ViewBag.com">Generar reporte de salas</a>-->
+    <a class="btn btn-primary" href="~/Sesion/GenerarReporteAsentarCompetencia/@ViewBag.com">Generar reporte de salas</a>
+    <a class="btn btn-primary" href="~/Sesion/generarReporteSalas/@ViewBag.com">Generar reporte equipos</a>
+    <a class="btn btn-primary" href="~/Sesion/GenerarReportFichas/@ViewBag.com">Generar fichas</a>
+
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idGrupo)
+                </th>
+                <th>
+                    <label>Participante 1</label>
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.identificacion1)
+                </th>
+                <th>
+                    <label>Participante 2</label>
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.identificacion2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreEquipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstadoEquipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreSala)
+                </th>
+                <th>
+                    <label>Nivel</label>
+                </th>
+
+                <th>
+
+                    <label>Cambio de sala</label>
+
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                if (it % 2 != 0)
+                {
+
+
+                    <tr>
+                        <td>
+                            <label>@id</label>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreParticipante1)
+                            @Html.DisplayFor(modelItem => item.ApellidoParticipante1)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.identificacion1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreParticipante2)
+                            @Html.DisplayFor(modelItem => item.ApellidoParticipante2)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.identificacion2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreEquipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstadoEquipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreSala)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nivel)
+                        </td>
+
+                        <td>
+                            <div class="form-group row">
+                                <div class="col col-md-5">
+                                    @using (Html.BeginForm("cambiarSalaCompetenciaEquipo", "Sesion", FormMethod.Post))
+                                    {
+                                        <div class="col">
+                                            <select name="sala" id="estadoc" class="  form-control" required>
+                                                <option selected disabled value="">Cambiar a la sala</option>
+                                                @foreach (var it2 in ViewBag.salas)
+                                                {
+
+                                                    <option value=@it2.id>@it2.nombre</option>
+
+
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <input name="idgrupo" type="hidden" value=@item.idGrupo>
+                                        <input type="submit" value="Enviar" class="btn btn-primary" />
+
+                                    }
+                                </div>
+                                <div class="col col-md-5">
+                                    @using (Html.BeginForm("editarEquipo", "Sesion", FormMethod.Post))
+                                    {
+                                        <input name="identificacion" type="hidden" value=@item.identificacion1>
+                                        <input name="comp" type="hidden" value=@item.idCompetencia>
+
+                                        <input type="submit" value="Editar equipo" class="btn btn-success" />
+                                    }
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    id++;
+                }
+                it++;
+
+            }
+
+
+        </table>
+    </div>
+
+</div>
+
+
+

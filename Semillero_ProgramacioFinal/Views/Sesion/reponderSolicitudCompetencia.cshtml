@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_listarSolicitudes_Result>
+
+@{
+    ViewBag.Title = "reponderSolicitudCompetencia";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    int it = 0;
+}
+
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+
+
+
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Responder solicitudes</h3>
+    </div>
+
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+
+            <tr>
+                <th>
+                    Participante
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.identificacion1)
+                </th>
+                <th>
+                    Participante
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.identificacion2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.idGrupo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreEquipo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreCompetencia)
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>Operacion</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (it % 2 == 0)
+                {
+
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreParticipante1)
+
+                            @Html.DisplayFor(modelItem => item.ApellidoParticipante1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.identificacion1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreParticipante2)
+
+                            @Html.DisplayFor(modelItem => item.ApellidoParticipante2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.identificacion2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idGrupo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreEquipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreCompetencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre)
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="~/Sesion/aceptarSolicitud/@item.idGrupo">Aceptar</a>
+                            <a class="btn btn-danger" href="~/Sesion/reachazarSolicitud/@item.idGrupo">Rechazar</a>
+                        </td>
+                    </tr>
+
+                }
+                it += 1;
+            }
+
+
+
+        </table>
+    </div>
+
+</div>

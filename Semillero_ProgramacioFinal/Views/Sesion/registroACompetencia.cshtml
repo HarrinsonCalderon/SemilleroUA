@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.Sesion.CompetenciaViewModel>
+
+@{
+    ViewBag.Title = "registroACompetencia";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    int id = 1;
+}
+
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Registro a competencia</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Fecha competencia</th>
+                <th>Hora inicio</th>
+                <th>Hora fin</th>
+                <th>Operacion</th>
+            </tr>
+            <tr>
+                @foreach (var it in Model)
+                {
+
+                <tr>
+                    <td>@id</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => it.nombre)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => it.fechacompetencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => it.horainicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => it.horafin)
+                    </td>
+                    <td>
+                        <div class="row">
+                            <a class="col-sm btn btn-primary " href="~/Sesion/regristroDocumento/@it.idcompetencia">Registro</a>
+                            <a class="col-sm btn btn-success " href="~/Sesion/editarEquipoPropio/@it.idcompetencia">Gestionar equipo</a>
+
+
+                        </div>
+                    </td>
+                </tr>
+
+                id++;
+
+            }
+
+
+            </table>
+        </div>
+
+    </div>
+
+

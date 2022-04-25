@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_listarPrivilegios_Result>
+
+@{
+    ViewBag.Title = "listarPermisos";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Permisos</h3>
+    </div>
+
+    
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                 
+                <th>Operacion</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    
+                    <td>
+                        @if (item.fkestadoprivilegio == 1)
+                        {
+                        <a class="col-sm btn btn-warning " href="~/Sesion/desactivarPrivilegio/@item.idprivilegio">Quitar</a>
+                        }
+                        else
+                        {
+                            <a class="col-sm btn btn-primary " href="~/Sesion/activarPrivilegio/@item.idprivilegio">Agregar</a>
+                        }
+
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+        </div>
+
+    </div>
+
+

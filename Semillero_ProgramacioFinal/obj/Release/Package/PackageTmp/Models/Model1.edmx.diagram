@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76738ca5882547abae2ebc5ddc932bf2" Name="Diagram1">
+        <EntityTypeShape EntityType="plataformaModel.academia" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.asignacionsalas" Width="1.5" PointX="10.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.competencia" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.correoCompetencia" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.correomasivo" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadocompetencia" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadogrupo" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadoprivilegio" Width="1.5" PointX="3" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadorol" Width="1.5" PointX="0.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadosala" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadosalacompetencia" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.estadousuario" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.grupo" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.grupopersona" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.menu" Width="1.5" PointX="3" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.nivel" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.participacion" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.persona" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.plataforma" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.privilegio" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.rol" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.sala" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.salacompetencia" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.tipodocumento" Width="1.5" PointX="0.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="plataformaModel.usuario" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="plataformaModel.fkacade" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidpar" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidsalas" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkcomp" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkcompsala" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkecompete" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkesta" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidcomp" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidesta" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkestadop" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkrolesta" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkestadosala" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkestadosalacompetencia" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkestau" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidg" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidgg" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidnivv" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidp" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkmenu" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fksm" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkidnivev" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkiden" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkper" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkroll" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fkrolle" ManuallyRouted="false" />
+        <AssociationConnector Association="plataformaModel.fksalasala" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

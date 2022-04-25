@@ -1,0 +1,176 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_AsentarCompetencia_Result>
+
+
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="~/Content/Plantilla/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/Plantilla/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="~/Content/Plantilla/dist/css/skins/_all-skins.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="~/Content/Plantilla/plugins/iCheck/flat/blue.css">
+<!-- Morris chart -->
+<link rel="stylesheet" href="~/Content/Plantilla/plugins/morris/morris.css">
+<!-- jvectormap -->
+<!--<link rel="stylesheet" href="~/Content/Plantilla/plugins/jvectormap/jquery-jvectormap-1.2.2.css">-->
+<!-- Date Picker -->
+<!--<link rel="stylesheet" href="~/Content/Plantilla/plugins/datepicker/datepicker3.css">-->
+<!-- Daterange picker -->
+<!--<link rel="stylesheet" href="~/Content/Plantilla/plugins/daterangepicker/daterangepicker.css">-->
+<!-- bootstrap wysihtml5 - text editor -->
+<!--<link rel="stylesheet" href="~/Content/Plantilla/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">-->
+<link href="~/Content/Plantilla/Estilos.css" rel="stylesheet" />
+
+
+
+
+@{
+    ViewBag.Title = "reporteAsentarCompetencia";
+    Layout = null;
+    var id = 1; var it = 1;
+}
+
+<style>
+
+    .ima {
+        display: block;
+        margin: auto;
+        width: 160px;
+        height: 150px;
+    }
+
+    .m {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .t {
+        text-align: center;
+    }
+</style>
+<img class="ima" src="~/img/se.jpg" />
+<div class="m">
+    <div class="box container ">
+        <div class="box-header with-border t">
+            <h2 class="container">Reporte de: @ViewBag.nom</h2>
+        </div>
+
+        @*<a href="~/Sesion/GenerarReporteAsentarCompetencia/@ViewBag.id">Gen</a>*@
+        <!-- /.box-header -->
+        <div class="main">
+            <table class="table table-condensed">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.idGrupo)
+                    </th>
+                    <th>
+                        <label>Participante 1</label>
+                    </th>
+
+
+                    <th>
+                        <label>Participante 2</label>
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreEquipo)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreSala)
+                    </th>
+                    <th>
+                        <label>Nivel</label>
+                    </th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (it % 2 != 0)
+                    {
+
+
+                        <tr>
+                            <td>
+                                <label>@id</label>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreParticipante1)
+                                @Html.DisplayFor(modelItem => item.ApellidoParticipante1)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreParticipante2)
+                                @Html.DisplayFor(modelItem => item.ApellidoParticipante2)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreEquipo)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreSala)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nivel)
+                            </td>
+
+                            <td>
+                                <div class="form-group row">
+                                    @*<div class="col col-md-5">
+                                            @using (Html.BeginForm("cambiarSalaCompetenciaEquipo", "Sesion", FormMethod.Post))
+                                            {
+                                                <div class="col">
+                                                    <select name="sala" id="estadoc" class="  form-control" required>
+                                                        <option selected disabled value="">Cambiar a la sala</option>
+                                                        @foreach (var it2 in ViewBag.salas)
+                                                        {
+
+                                                            <option value=@it2.id>@it2.nombre</option>
+
+
+                                                        }
+                                                    </select>
+                                                </div>
+
+                                                <input name="idgrupo" type="hidden" value=@item.idGrupo>
+                                                <input type="submit" value="Enviar" class="btn btn-primary" />
+
+                                            }
+                                        </div>*@
+                                    @*<div class="col col-md-5">
+                                            @using (Html.BeginForm("editarEquipo", "Sesion", FormMethod.Post))
+                                            {
+                                                <input name="identificacion" type="hidden" value=@item.identificacion1>
+                                                <input name="comp" type="hidden" value=@item.idCompetencia>
+
+                                                <input type="submit" value="Editar equipo" class="btn btn-success" />
+                                            }
+                                        </div>*@
+                                </div>
+
+                            </td>
+                        </tr>
+                        id++;
+                    }
+                    it++;
+
+                }
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>

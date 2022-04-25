@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_listarCompetenciasActivasCorreo_Result>
+
+@{
+    ViewBag.Title = "listarCompetenciasCorreo";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+
+<div class="box container">
+    <div class="box-header with-border">
+
+        <h3 class="box-title">Listado de competencias</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idcompetencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fechacompetencia)
+                </th>
+
+                <th><label>Editar correo de aceptacion</label></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idcompetencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fechacompetencia)
+                    </td>
+
+                    <td>
+                        <a class="col-sm btn btn-danger " href="~/Sesion/editarCorreoConfirmacion/@item.idcorreoCompetencia">Editar correo</a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <a class="col-sm btn btn-primary " href="~/Sesion/gestionarCorreoMasivo">Gestionar correo masivo</a>
+    </div>
+
+</div>

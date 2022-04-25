@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_listarUsuario_Result>
+
+@{
+    ViewBag.Title = "listarCambioRol";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Cambio de rol</h3>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Type to search table...">
+    </div>
+
+    <!-- /.box-header -->
+    <div class="">
+
+
+
+
+        <table class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
+            <thead>
+                <tr role="row">
+                    <th>
+                        @Html.DisplayNameFor(model => model.identificacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.primernombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.primerapellido)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.correoelectronico)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre)
+                    </th>
+                     
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.identificacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.primernombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.primerapellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.correoelectronico)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre)
+                        </td>
+                         
+                        <td>
+                            
+                            <a class="col-sm btn btn-primary " href="~/Sesion/cambiarRol/@item.identificacion">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
+</script>

@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "gestionarSalasRegistros";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    var id = 1;
+}
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Gestionar sala competencia</h3>
+    </div>
+
+    <a class="btn btn-primary" href="~/Sesion/agregarSalaCompetencia/@ViewBag.idc">Agregar </a>
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Cupos</th>
+                <th>Estado</th>
+                <th>Operacion</th>
+            </tr>
+            <tr>
+                @foreach (var it in ViewBag.sala)
+                {
+                <tr>
+                    <td>@id</td>
+                    <td>@it.nombre</td>
+                    <td>@it.cupos</td>
+                    <td>
+                        @{ foreach (var i in ViewBag.estado)
+                            {
+                                if (it.fkestado == i.id)
+                                {
+                                    @i.nombre
+                                }
+
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="row">
+                            <!---->  <a class="col-sm btn btn-danger " href="#">Eliminar</a>
+                            <a class="col-sm btn btn-primary " href="~/Sesion/editarSalaCompetencia/@it.idsalacompetencia">Editar</a>
+
+                        </div>
+                    </td>
+                </tr>
+
+                id++;
+
+            }
+
+        
+            </table>
+          
+        </div>
+
+    </div>
+
+

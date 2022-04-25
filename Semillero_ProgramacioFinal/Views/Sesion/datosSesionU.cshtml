@@ -1,0 +1,53 @@
+﻿@model Semillero_ProgramacioFinal.Models.Sesion.SesionViewModel
+
+@{
+    ViewBag.Title = "datosSesion";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+
+
+
+
+
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Datos usuario</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class="">
+        <div>
+
+            <dl class="dl-horizontal">
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.correo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.correo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.contrasena)
+                </dt>
+
+                <dd>
+                    <label>**********</label>
+                </dd>
+
+
+
+
+
+                <a class="col-sm btn btn-success " href="~/Sesion/editardatosSesion/@Model.idusuario">Editar</a>
+            </dl>
+        </div>
+    </div>
+
+</div>

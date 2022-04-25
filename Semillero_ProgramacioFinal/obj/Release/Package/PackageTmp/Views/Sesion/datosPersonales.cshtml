@@ -1,0 +1,100 @@
+﻿@model Semillero_ProgramacioFinal.Models.Sesion.PersonaViewModel
+
+@{
+    ViewBag.Title = "datosPersonales";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+ 
+
+
+
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Datos personales</h3>
+    </div>
+
+ 
+    <!-- /.box-header -->
+    <div class="">
+        <div>
+           
+            <hr />
+            <dl class="dl-horizontal">
+                
+                <div clas="row">
+                    
+                        <dt>
+                            @Html.DisplayNameFor(model => model.identificacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.identificacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.primernombre)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.primernombre)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.segundonombre)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.segundonombre)
+                        </dd>
+
+
+                    </div>
+                
+                <dt>
+                    @Html.DisplayNameFor(model => model.primerapellido)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.primerapellido)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.segundoapellido)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.segundoapellido)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.telefono)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telefono)
+                </dd>
+
+                
+
+                <dt>
+                    <a class="col-sm btn btn-primary " href="~/Sesion/editarDatosPersonales/@Model.idpersona">Editar</a>
+                </dt>
+
+                <dd>
+                     
+                </dd>
+            </dl>
+
+        </div>
+        <p>
+
+
+            <a class="col-sm btn btn-success " href="~/Sesion/datosSesion">Ir a datos de sesion</a>
+        </p>
+
+    </div>
+
+    </div>

@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "gestionarCompetencia";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    var id = 1;
+}
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Gestionar competencia</h3>
+    </div>
+
+    <a class="btn btn-primary" href="~/Sesion/agregarCompetencia/@ViewBag.idc">Agregar</a>
+    <div class="form-group">
+        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Escribir para buscar">
+    </div>
+    
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Cupos disponibles</th>
+                    <th>Numero de participantes</th>
+                    <th>Estado</th>
+                    <th>Operacion</th>
+                </tr>
+            </thead>
+            <tr>
+                @foreach (var it in ViewBag.competencia)
+                {
+                <tr>
+                    <td>@id</td>
+                    <td>@it.nombre</td>
+                    <td>@it.cupos</td>
+                    <td>@it.numeroparticipantes</td>
+                    <td>
+                        @{
+                            foreach (var e in ViewBag.estado)
+                            {
+                                if (e.id == it.fkestado)
+                                {
+                                    @e.nombre
+                                    break;
+                                }
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="row">
+                            <a class="col-sm btn btn-primary  " href="~/Sesion/operacionesGestionCompetencia/@it.idcompetencia">
+                                <i class="fa fa-cogs"></i> Gestionar
+                            </a>
+
+                            @*<a class="col-sm btn btn-primary " href="~/Sesion/editarCompetencia/@it.idcompetencia">Editar</a>
+                                <a class="col-sm btn btn-success " href="~/Sesion/gestionarSalasRegistros/@it.idcompetencia">Gestionar</a>
+                                <a class="col-sm btn btn-primary " href="~/Sesion/subirResultado/@it.idcompetencia">Cargar resultado</a>
+                                <a class="col-sm btn btn-info " href="~/Sesion/reponderSolicitudCompetencia/@it.idcompetencia">Solicitudes</a>
+                                <a class="col-sm btn btn-primary " href="~/Sesion/asentarCompetencia/@it.idcompetencia">Asentar</a>*@
+                        </div>
+                    </td>
+                </tr>
+
+                id++;
+
+            }
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
+</script>

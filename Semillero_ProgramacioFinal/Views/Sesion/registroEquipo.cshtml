@@ -1,0 +1,67 @@
+﻿@model Semillero_ProgramacioFinal.Models.Sesion.EquipoViewModel
+
+@{
+    ViewBag.Title = "registroEquipo";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+ 
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Registro equipo</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class=" ">
+        @using (Html.BeginForm("registroEquipo", "Sesion",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            <div class="row">
+                <div class="form-group col col-md-9">
+                    @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6">
+                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col col-md-3">
+                    <select name="nivel"   class="col col-md-5 form-control" required>
+                        <option selected disabled value="">Nivel competencia</option>
+                        @foreach (var it in ViewBag.nivel)
+                        {
+                            <option value=@it.id>@it.nombre</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+            <div style="margin-left:50px;" class="row">
+                <div class="col col-md-6">
+                    <h3>Informacion de los participantes</h3>
+                    <h3>Nombre: @ViewBag.p1.nombre</h3>
+                    <h3>Documento: @ViewBag.p1.cc</h3>
+                    <h3>Nombre: @ViewBag.p2.nombre</h3>
+                    <h3>Documento: @ViewBag.p2.cc</h3>
+                </div>
+                <div class="col col-md-6">
+                    <h3>Informacion de la competencia</h3>
+                    <h3>Nombre: @ViewBag.com.nombre</h3>
+                </div>
+            </div>
+            
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+ 

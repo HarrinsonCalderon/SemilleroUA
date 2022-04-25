@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "cambiarRol";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Cambiar de rol</h3>
+    </div>
+
+
+    <!-- /.box-header -->
+    <div class=" ">
+        @using (Html.BeginForm("cambiarRolUsuario", "Sesion", FormMethod.Post))
+        {
+
+             
+                    <div class="form-group">
+                        <div class="col col-sm-2">
+                            <select name="rol" id="estadoc" class="  form-control" required>
+                                <option selected disabled value="">Nuevo rol</option>
+                                @foreach (var it in ViewBag.rol)
+                                {
+                                    <option value=@it.id>@it.nombre</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+             
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            </div>
+            <hr />
+            <hr />
+        }
+
+    </div>
+</div>

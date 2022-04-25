@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="plataformaModelStoreContainer" CdmEntityContainer="plataformaEntities">
+    <EntitySetMapping Name="academia">
+      <EntityTypeMapping TypeName="plataformaModel.academia">
+        <MappingFragment StoreEntitySet="academia">
+          <ScalarProperty Name="idacademia" ColumnName="idacademia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asignacionsalas">
+      <EntityTypeMapping TypeName="plataformaModel.asignacionsalas">
+        <MappingFragment StoreEntitySet="asignacionsalas">
+          <ScalarProperty Name="idasignacionsalas" ColumnName="idasignacionsalas" />
+          <ScalarProperty Name="fkidparticipacion" ColumnName="fkidparticipacion" />
+          <ScalarProperty Name="fkidsalacompetencia" ColumnName="fkidsalacompetencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="competencia">
+      <EntityTypeMapping TypeName="plataformaModel.competencia">
+        <MappingFragment StoreEntitySet="competencia">
+          <ScalarProperty Name="idcompetencia" ColumnName="idcompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cupos" ColumnName="cupos" />
+          <ScalarProperty Name="fechacompetencia" ColumnName="fechacompetencia" />
+          <ScalarProperty Name="hotainicio" ColumnName="hotainicio" />
+          <ScalarProperty Name="horafin" ColumnName="horafin" />
+          <ScalarProperty Name="cantidadejercicios" ColumnName="cantidadejercicios" />
+          <ScalarProperty Name="numeroparticipantes" ColumnName="numeroparticipantes" />
+          <ScalarProperty Name="limiteinscripcion" ColumnName="limiteinscripcion" />
+          <ScalarProperty Name="fkestado" ColumnName="fkestado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="correoCompetencia">
+      <EntityTypeMapping TypeName="plataformaModel.correoCompetencia">
+        <MappingFragment StoreEntitySet="correoCompetencia">
+          <ScalarProperty Name="idcorreoCompetencia" ColumnName="idcorreoCompetencia" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="fkidcompetencia" ColumnName="fkidcompetencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="correomasivo">
+      <EntityTypeMapping TypeName="plataformaModel.correomasivo">
+        <MappingFragment StoreEntitySet="correomasivo">
+          <ScalarProperty Name="correomasivo1" ColumnName="correomasivo" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadocompetencia">
+      <EntityTypeMapping TypeName="plataformaModel.estadocompetencia">
+        <MappingFragment StoreEntitySet="estadocompetencia">
+          <ScalarProperty Name="idestadocompetencia" ColumnName="idestadocompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadogrupo">
+      <EntityTypeMapping TypeName="plataformaModel.estadogrupo">
+        <MappingFragment StoreEntitySet="estadogrupo">
+          <ScalarProperty Name="idestadogrupo" ColumnName="idestadogrupo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadoprivilegio">
+      <EntityTypeMapping TypeName="plataformaModel.estadoprivilegio">
+        <MappingFragment StoreEntitySet="estadoprivilegio">
+          <ScalarProperty Name="idestadoprivilegio" ColumnName="idestadoprivilegio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadorol">
+      <EntityTypeMapping TypeName="plataformaModel.estadorol">
+        <MappingFragment StoreEntitySet="estadorol">
+          <ScalarProperty Name="idestadorol" ColumnName="idestadorol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadosala">
+      <EntityTypeMapping TypeName="plataformaModel.estadosala">
+        <MappingFragment StoreEntitySet="estadosala">
+          <ScalarProperty Name="idestadosala" ColumnName="idestadosala" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadosalacompetencia">
+      <EntityTypeMapping TypeName="plataformaModel.estadosalacompetencia">
+        <MappingFragment StoreEntitySet="estadosalacompetencia">
+          <ScalarProperty Name="idestadosalacompetencia" ColumnName="idestadosalacompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadousuario">
+      <EntityTypeMapping TypeName="plataformaModel.estadousuario">
+        <MappingFragment StoreEntitySet="estadousuario">
+          <ScalarProperty Name="idestadousuario" ColumnName="idestadousuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupo">
+      <EntityTypeMapping TypeName="plataformaModel.grupo">
+        <MappingFragment StoreEntitySet="grupo">
+          <ScalarProperty Name="idgrupo" ColumnName="idgrupo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="fkidcompetencia" ColumnName="fkidcompetencia" />
+          <ScalarProperty Name="fkidnivel" ColumnName="fkidnivel" />
+          <ScalarProperty Name="fkidestado" ColumnName="fkidestado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupopersona">
+      <EntityTypeMapping TypeName="plataformaModel.grupopersona">
+        <MappingFragment StoreEntitySet="grupopersona">
+          <ScalarProperty Name="idgrupopersona" ColumnName="idgrupopersona" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="fkidpersona" ColumnName="fkidpersona" />
+          <ScalarProperty Name="fkidgrupo" ColumnName="fkidgrupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="plataformaModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="idmenu" ColumnName="idmenu" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+          <ScalarProperty Name="fkmenu" ColumnName="fkmenu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nivel">
+      <EntityTypeMapping TypeName="plataformaModel.nivel">
+        <MappingFragment StoreEntitySet="nivel">
+          <ScalarProperty Name="idnivel" ColumnName="idnivel" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="participacion">
+      <EntityTypeMapping TypeName="plataformaModel.participacion">
+        <MappingFragment StoreEntitySet="participacion">
+          <ScalarProperty Name="idparticipacion" ColumnName="idparticipacion" />
+          <ScalarProperty Name="fkidgrupo" ColumnName="fkidgrupo" />
+          <ScalarProperty Name="fkidnivel" ColumnName="fkidnivel" />
+          <ScalarProperty Name="fkidcompetencia" ColumnName="fkidcompetencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona">
+      <EntityTypeMapping TypeName="plataformaModel.persona">
+        <MappingFragment StoreEntitySet="persona">
+          <ScalarProperty Name="idpersona" ColumnName="idpersona" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="primernombre" ColumnName="primernombre" />
+          <ScalarProperty Name="segundonombre" ColumnName="segundonombre" />
+          <ScalarProperty Name="primerapellido" ColumnName="primerapellido" />
+          <ScalarProperty Name="segundoapellido" ColumnName="segundoapellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fktipodocumento" ColumnName="fktipodocumento" />
+          <ScalarProperty Name="fkacademia" ColumnName="fkacademia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plataforma">
+      <EntityTypeMapping TypeName="plataformaModel.plataforma">
+        <MappingFragment StoreEntitySet="plataforma">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="privilegio">
+      <EntityTypeMapping TypeName="plataformaModel.privilegio">
+        <MappingFragment StoreEntitySet="privilegio">
+          <ScalarProperty Name="idprivilegio" ColumnName="idprivilegio" />
+          <ScalarProperty Name="fkestadoprivilegio" ColumnName="fkestadoprivilegio" />
+          <ScalarProperty Name="fkrol" ColumnName="fkrol" />
+          <ScalarProperty Name="fkmenu" ColumnName="fkmenu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="plataformaModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fkestadorol" ColumnName="fkestadorol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sala">
+      <EntityTypeMapping TypeName="plataformaModel.sala">
+        <MappingFragment StoreEntitySet="sala">
+          <ScalarProperty Name="idsala" ColumnName="idsala" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cupos" ColumnName="cupos" />
+          <ScalarProperty Name="fkestado" ColumnName="fkestado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salacompetencia">
+      <EntityTypeMapping TypeName="plataformaModel.salacompetencia">
+        <MappingFragment StoreEntitySet="salacompetencia">
+          <ScalarProperty Name="idsalacompetencia" ColumnName="idsalacompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cupos" ColumnName="cupos" />
+          <ScalarProperty Name="fkidcompetencia" ColumnName="fkidcompetencia" />
+          <ScalarProperty Name="fkidsala" ColumnName="fkidsala" />
+          <ScalarProperty Name="fkestado" ColumnName="fkestado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipodocumento">
+      <EntityTypeMapping TypeName="plataformaModel.tipodocumento">
+        <MappingFragment StoreEntitySet="tipodocumento">
+          <ScalarProperty Name="idtipodocumento" ColumnName="idtipodocumento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="plataformaModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="correoelectronico" ColumnName="correoelectronico" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="fkidepersona" ColumnName="fkidepersona" />
+          <ScalarProperty Name="fkrol" ColumnName="fkrol" />
+          <ScalarProperty Name="fkestado" ColumnName="fkestado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_activarPrivilegio" FunctionName="plataformaModel.Store.sp_activarPrivilegio" />
+    <FunctionImportMapping FunctionImportName="sp_agregar_grupo" FunctionName="plataformaModel.Store.sp_agregar_grupo" />
+    <FunctionImportMapping FunctionImportName="sp_AsentarCompetencia" FunctionName="plataformaModel.Store.sp_AsentarCompetencia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_AsentarCompetencia_Result">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="EstadoEquipo" ColumnName="EstadoEquipo" />
+          <ScalarProperty Name="NombreSala" ColumnName="NombreSala" />
+          <ScalarProperty Name="idCompetencia" ColumnName="idCompetencia" />
+          <ScalarProperty Name="idsalacompetencia" ColumnName="idsalacompetencia" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_cambiarDeSala" FunctionName="plataformaModel.Store.sp_cambiarDeSala" />
+    <FunctionImportMapping FunctionImportName="sp_cambiarRolUsuario" FunctionName="plataformaModel.Store.sp_cambiarRolUsuario" />
+    <FunctionImportMapping FunctionImportName="sp_competenciasA" FunctionName="plataformaModel.Store.sp_competenciasA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_competenciasA_Result">
+          <ScalarProperty Name="idcompetencia" ColumnName="idcompetencia" />
+          <ScalarProperty Name="Competencia" ColumnName="Competencia" />
+          <ScalarProperty Name="fechacompetencia" ColumnName="fechacompetencia" />
+          <ScalarProperty Name="EstadoCompetencia" ColumnName="EstadoCompetencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_competenciasU" FunctionName="plataformaModel.Store.sp_competenciasU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_competenciasU_Result">
+          <ScalarProperty Name="idcompetencia" ColumnName="idcompetencia" />
+          <ScalarProperty Name="Competencia" ColumnName="Competencia" />
+          <ScalarProperty Name="fechacompetencia" ColumnName="fechacompetencia" />
+          <ScalarProperty Name="EstadoCompetencia" ColumnName="EstadoCompetencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_desactivarPrivilegio" FunctionName="plataformaModel.Store.sp_desactivarPrivilegio" />
+    <FunctionImportMapping FunctionImportName="sp_editarUsuariosA" FunctionName="plataformaModel.Store.sp_editarUsuariosA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_editarUsuariosA_Result">
+          <ScalarProperty Name="idpersona" ColumnName="idpersona" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="primernombre" ColumnName="primernombre" />
+          <ScalarProperty Name="primerapellido" ColumnName="primerapellido" />
+          <ScalarProperty Name="correoelectronico" ColumnName="correoelectronico" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_eliminarEquipo" FunctionName="plataformaModel.Store.sp_eliminarEquipo" />
+    <FunctionImportMapping FunctionImportName="sp_historialCompetenciaA" FunctionName="plataformaModel.Store.sp_historialCompetenciaA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_historialCompetenciaA_Result">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="EstadoEquipo" ColumnName="EstadoEquipo" />
+          <ScalarProperty Name="idCompetencia" ColumnName="idCompetencia" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_historialCompetenciaU" FunctionName="plataformaModel.Store.sp_historialCompetenciaU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_historialCompetenciaU_Result">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="EstadoEquipo" ColumnName="EstadoEquipo" />
+          <ScalarProperty Name="idCompetencia" ColumnName="idCompetencia" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarCompetenciasActivasCorreo" FunctionName="plataformaModel.Store.sp_listarCompetenciasActivasCorreo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarCompetenciasActivasCorreo_Result">
+          <ScalarProperty Name="idcompetencia" ColumnName="idcompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechacompetencia" ColumnName="fechacompetencia" />
+          <ScalarProperty Name="idcorreoCompetencia" ColumnName="idcorreoCompetencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarGruposEnSala" FunctionName="plataformaModel.Store.sp_listarGruposEnSala">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarGruposEnSala_Result">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="EstadoEquipo" ColumnName="EstadoEquipo" />
+          <ScalarProperty Name="NombreSala" ColumnName="NombreSala" />
+          <ScalarProperty Name="idCompetencia" ColumnName="idCompetencia" />
+          <ScalarProperty Name="idsalacompetencia" ColumnName="idsalacompetencia" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarGruposSubirResultado" FunctionName="plataformaModel.Store.sp_listarGruposSubirResultado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarGruposSubirResultado_Result">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="EstadoEquipo" ColumnName="EstadoEquipo" />
+          <ScalarProperty Name="NombreSala" ColumnName="NombreSala" />
+          <ScalarProperty Name="idCompetencia" ColumnName="idCompetencia" />
+          <ScalarProperty Name="idsalacompetencia" ColumnName="idsalacompetencia" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarParaEditar_equipoPropio" FunctionName="plataformaModel.Store.sp_listarParaEditar_equipoPropio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarParaEditar_equipoPropio_Result">
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="NombreCompetencia" ColumnName="NombreCompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarPrivilegios" FunctionName="plataformaModel.Store.sp_listarPrivilegios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarPrivilegios_Result">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idprivilegio" ColumnName="idprivilegio" />
+          <ScalarProperty Name="fkestadoprivilegio" ColumnName="fkestadoprivilegio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarSolicitudes" FunctionName="plataformaModel.Store.sp_listarSolicitudes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarSolicitudes_Result">
+          <ScalarProperty Name="NombreParticipante1" ColumnName="NombreParticipante1" />
+          <ScalarProperty Name="ApellidoParticipante1" ColumnName="ApellidoParticipante1" />
+          <ScalarProperty Name="identificacion1" ColumnName="identificacion1" />
+          <ScalarProperty Name="NombreParticipante2" ColumnName="NombreParticipante2" />
+          <ScalarProperty Name="ApellidoParticipante2" ColumnName="ApellidoParticipante2" />
+          <ScalarProperty Name="identificacion2" ColumnName="identificacion2" />
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="NombreEquipo" ColumnName="NombreEquipo" />
+          <ScalarProperty Name="NombreCompetencia" ColumnName="NombreCompetencia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_listarUsuario" FunctionName="plataformaModel.Store.sp_listarUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="plataformaModel.sp_listarUsuario_Result">
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="primernombre" ColumnName="primernombre" />
+          <ScalarProperty Name="primerapellido" ColumnName="primerapellido" />
+          <ScalarProperty Name="correoelectronico" ColumnName="correoelectronico" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_negarSolicitud" FunctionName="plataformaModel.Store.sp_negarSolicitud" />
+    <FunctionImportMapping FunctionImportName="sp_responderSolicitudCompetencia" FunctionName="plataformaModel.Store.sp_responderSolicitudCompetencia" />
+    <FunctionImportMapping FunctionImportName="sp_subirResultado" FunctionName="plataformaModel.Store.sp_subirResultado" />
+  </EntityContainerMapping>
+</Mapping>

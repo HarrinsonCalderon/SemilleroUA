@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "gestionarDocumento";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+    var id = 1;
+}
+
+@{
+    if (ViewBag.error != null)
+    {
+        <script>
+                 alert("@ViewBag.error");
+        </script>
+    }
+
+}
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Gestionar tipo de documento</h3>
+    </div>
+
+    <a class="btn btn-primary" href="~/Sesion/agregarDocumento">Agregar</a>
+    <!-- /.box-header -->
+    <div class="">
+        <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Operacion</th>
+            </tr>
+            <tr>
+                @foreach (var it in ViewBag.documento)
+                {
+                <tr>
+                    <td>@id</td>
+                    <td>@it.nombre</td>
+                    <td>
+                        <div class="row">
+                            <a class="col-sm btn btn-danger " href="~/Sesion/eliminarDocumento/@it.id">Eliminar</a>
+                            <a class="col-sm btn btn-primary " href="~/Sesion/editarDocumento/@it.id">Editar</a>
+                        </div>
+                    </td>
+                </tr>
+
+                id++;
+
+            }
+
+
+            </table>
+        </div>
+
+    </div>
+
+

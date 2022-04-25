@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Semillero_ProgramacioFinal.Models.sp_competenciasU_Result>
+
+@{
+    ViewBag.Title = "historialCompetenciaU";
+    Layout = "~/Views/Shared/_LayoutSesion.cshtml";
+}
+ 
+
+
+
+<div class="box container">
+    <div class="box-header with-border">
+        <h3 class="box-title">Competencias participadas</h3>
+    </div>
+
+    
+    <!-- /.box-header -->
+    <div class="">
+
+        <table class="table  table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idcompetencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Competencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fechacompetencia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstadoCompetencia)
+                </th>
+                <th><label>Resultados</label></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idcompetencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Competencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fechacompetencia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EstadoCompetencia)
+                    </td>
+                    <td>
+                        <a class="col-sm btn btn-primary " href="~/Sesion/resultadosCompetenciaU/@item.idcompetencia">Resultados</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+    </div>
+
+    </div>
